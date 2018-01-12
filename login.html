@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Atividades</title>
+	<meta name="viewport" content="width=500, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="teclado.css">
+</head>
+<body>
+	<div class="container-fluid total-height">
+		<div class="row total-height">
+			<div class="col-sm-3 col-md-3 background-left total-height">
+				<img src="img/logo.png" class="img-rounded center-block-image" alt="">
+			</div>
+			<div class="col-sm-9 col-md-9 background-right total-height">
+				<div class="align-form">
+					<form action="">
+						<div class="row">
+							<div class="col">
+								<input type="text" name="codigo" id="keyboard_1" class="margim-bottom-input login-input" placeholder="CODIGO" value="">
+								<input type="text" name="senha" class="login-input" id="keyboard_2" placeholder="SENHA" value="">
+							</div>
+							<div class="col">
+								<button class="login-button"><i class="fa fa-play" aria-hidden="true"></i></button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog" role="document" style="position: relative;top: 6em; padding: 44px;">
+		    <div class="modal-content" style="border-radius: 10px;">
+				<div class="col-md-12 col-md-offset-12 phone">
+				    <div class="row1">
+				        <div class="col-md-12">
+				            <div class="num-pad">
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">
+					                        1
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">2</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">3</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">4</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">5</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">6</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">7</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">8</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">9</div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">
+					                        *
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">
+					                        0 <span class="small">
+					                            <p>
+					                                +</p>
+					                        </span>
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="span4">
+					                <div class="num">
+					                    <div class="txt">
+					                        #
+					                    </div>
+					                </div>
+					            </div>
+				            </div>
+				            <div class="clearfix">
+				            </div>
+				        </div>
+				    </div>
+				    <div class="clearfix">
+				    </div>
+				</div>
+		    </div>
+		  </div>
+		</div>
+	<!-- Final - Modal -->
+
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+
+			function openModal(keyboard){
+				$("#exampleModalCenter").modal();
+				$('.num').click(function () {
+				    var num = $(this);
+				    var text = $.trim(num.find('.txt').text());
+				    var cod = $(keyboard);
+				    $(cod).val(cod.val() + text);
+				});
+			}
+
+
+			var input1 = document.getElementById('keyboard_1');
+
+			input1.addEventListener('click', function(){
+				openModal(input1);
+			});
+			
+			var input2 = document.getElementById('keyboard_2');
+
+			input2.addEventListener('click', function(){
+				openModal(input2);
+			});
+
+		});
+	</script>
+</body>
+</html>
