@@ -133,26 +133,30 @@
 
 			function openModal(keyboard){
 				$("#exampleModalCenter").modal();
-				$('.num').click(function () {
+				$('.num').click(function (event) {
 				    var num = $(this);
 				    var text = $.trim(num.find('.txt').text());
-				    var cod = $(keyboard);
-				    $(cod).val(cod.val() + text);
+				    var cod = keyboard;
+				    keyboard.val(keyboard.val() + text);
+
+				    //console.log(event);
+				    //console.log(keyboard);
 				});
 			}
 
 
-			var input1 = document.getElementById('keyboard_1');
-
-			input1.addEventListener('click', function(){
-				openModal(input1);
+			$("#keyboard_1").click(function(event) {
+				event.preventDefault();
+				console.log(event);
+				openModal($("#keyboard_1"));
 			});
-			
-			var input2 = document.getElementById('keyboard_2');
 
-			input2.addEventListener('click', function(){
-				openModal(input2);
+			$("#keyboard_2").click(function(event) {
+				event.preventDefault();
+				console.log(event);
+				openModal($("#keyboard_2"));
 			});
+
 
 		});
 	</script>
