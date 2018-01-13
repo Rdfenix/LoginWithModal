@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="teclado.css">
+	<style>
+		.modal {
+			background: rgba(127, 90, 216, 0.55) !important;
+		}
+	</style>
 </head>
 <body>
 	<div class="container-fluid total-height">
@@ -35,7 +40,7 @@
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		  <div class="modal-dialog" role="document" style="position: relative;top: 6em; padding: 44px;">
-		    <div class="modal-content" style="border-radius: 10px;">
+		    <div class="modal-content" style="border-radius: 10px;background-color: #fcda4e;">
 				<div class="col-md-12 col-md-offset-12 phone">
 				    <div class="row1">
 				        <div class="col-md-12">
@@ -112,6 +117,7 @@
 					                </div>
 					            </div>
 				            </div>
+				             <button type="button" class="btn btn-success btn-block flatbtn" data-dismiss="modal">INSERIR</button>
 				            <div class="clearfix">
 				            </div>
 				        </div>
@@ -131,32 +137,37 @@
 	<script>
 		$(document).ready(function(){
 
-			function openModal(keyboard){
+			function openModal(){
 				$("#exampleModalCenter").modal();
-				$('.num').click(function (event) {
+			}
+
+			function digitar(keyboard)
+			{
+				$('.num').off('click').click(function (event) {
 				    var num = $(this);
 				    var text = $.trim(num.find('.txt').text());
 				    var cod = keyboard;
 				    keyboard.val(keyboard.val() + text);
-
-				    //console.log(event);
-				    //console.log(keyboard);
 				});
 			}
 
 
-			$("#keyboard_1").click(function(event) {
+			if($("#exampleModalCenter").modal({show: false})){};
+
+			$("#keyboard_1").off('click').click(function(event) {
 				event.preventDefault();
-				console.log(event);
-				openModal($("#keyboard_1"));
+				$("#keyboard_1").val("");
+				openModal();
+				digitar($("#keyboard_1"));
 			});
 
-			$("#keyboard_2").click(function(event) {
-				event.preventDefault();
-				console.log(event);
-				openModal($("#keyboard_2"));
-			});
 
+			$("#keyboard_2").off('click').click(function(event) {
+				event.preventDefault();
+				$("#keyboard_2").val("");
+				openModal();
+				digitar($("#keyboard_2"));
+			});
 
 		});
 	</script>
